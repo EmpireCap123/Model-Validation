@@ -1,0 +1,14 @@
+# Once the dataset is cleaned and ready for a first draft model to be created:
+# The baseline predictions are the historical averages
+baseline_preds = test_features[:, feature_list.index('average')]
+# Baseline errors, and display average baseline error
+baseline_errors = abs(baseline_preds - test_labels)
+print('Average baseline error: ', round(np.mean(baseline_errors), 2))
+Average baseline error:  5.06 degrees
+
+# Calculate mean absolute percentage error (MAPE)
+mape = 100 * (errors / test_labels)
+# Calculate and display accuracy
+accuracy = 100 - np.mean(mape)
+print('Accuracy:', round(accuracy, 2), '%.')
+Accuracy: 93.99 %.
